@@ -24,7 +24,7 @@ export default function CTA() {
               asChild
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-green-600 text-lg px-8"
+              className="border-white text-white hover:bg-white hover:text-green-600 bg-green-500 text-lg px-8"
             >
               <Link href="/services">
                 Explore Our Services
