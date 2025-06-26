@@ -1,68 +1,129 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Home, FileText, Users, Briefcase, ArrowRight } from "lucide-react"
-import Link from "next/link"
+"use client";
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import image1 from "@/public/Kenya2.jpg";
+import image2 from "@/public/paper.jpg";
+import image3 from "@/public/employment.jpg";
+import image4 from "@/public/community.jpg";
 
 export default function Services() {
   const services = [
     {
-      icon: Home,
-      title: "Housing & Accommodation",
-      description: "Find your perfect home with our curated property listings and neighborhood expertise.",
-      features: ["Property search", "Neighborhood guides", "Lease negotiation", "Home setup"],
+      image: image1,
+      title: "Housing & Home Support",
+      description:
+        "Settle in with confidence—from finding the perfect home to building a trusted household team. We make your move smooth, safe, and stress-free.",
+      features: [
+        "Curated property listings that match your lifestyle",
+        "Trusted neighborhood recommendations",
+        "Lease negotiation & move-in coordination",
+        "Home setup services (utilities, furnishings, etc.)",
+        "Vetted referrals for nannies, housekeepers, and drivers",
+      ],
     },
     {
-      icon: FileText,
+      image: image2,
       title: "Documentation & Legal",
-      description: "Navigate Kenya's bureaucracy with expert guidance on permits and legal requirements.",
-      features: ["Work permits", "Visa applications", "Legal documents", "Government liaison"],
+      description:
+        "Avoid the paperwork headache. We guide you through Kenya’s legal and immigration processes—so you get what you need, faster and with less stress.",
+      features: [
+        "Work and residence permit support",
+        "Visa application guidance",
+        "Preparation and review of legal documents",
+        "Liaison with government offices and agencies",
+      ],
     },
     {
-      icon: Briefcase,
+      image: image3,
       title: "Employment Support",
-      description: "Connect with career opportunities and build your professional network in Kenya.",
-      features: ["Job placement", "Professional networking", "Skills assessment", "Career counseling"],
+      description:
+        "Whether you're job hunting or building a new career path, we help you connect to the right opportunities and grow your professional network in Kenya.",
+      features: [
+        "Tailored job placement assistance",
+        "Skills and career assessments",
+        "Professional networking and industry introductions",
+        "Personalized career coaching and counseling",
+      ],
     },
     {
-      icon: Users,
+      image: image4,
       title: "Community Integration",
-      description: "Build meaningful connections and integrate seamlessly into Kenyan communities.",
-      features: ["Social events", "Cultural orientation", "Community groups", "Mentorship"],
+      description:
+        "Feel at home, faster. We help you plug into the heart of Kenyan life—through real connections, shared experiences, and vibrant community vibes.",
+      features: [
+        "Curated social events and local hangouts",
+        "Cultural orientation that feels like storytelling, not a lecture",
+        "Introductions to community groups and interest-based circles",
+        "Mentorship programs to help you thrive, not just survive",
+      ],
     },
-  ]
+  ];
+  
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-[#fff8ec]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Comprehensive Services for Your Journey</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Comprehensive Services for Your Journey
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From finding your first home to building lasting community connections, we support every aspect of your life
-            in Kenya.
+            From finding your first home to building lasting community
+            connections, we support every aspect of your life in Kenya.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {services.map((service, index) => (
-            <Card key={index} className="h-full hover:shadow-lg transition-shadow group">
-              <CardHeader>
-                <div className="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
-                  <service.icon className="w-6 h-6 text-green-600" />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="h-full shadow-sm hover:shadow-md transition-shadow duration-300 group">
+                <div className="h-40 relative overflow-hidden rounded-t-lg">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    priority
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
-                <CardDescription className="text-gray-600">{service.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-gray-600">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+                <CardHeader>
+                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardDescription className="text-gray-600">
+                    {service.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-center text-sm text-gray-600"
+                      >
+                        <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
@@ -76,5 +137,5 @@ export default function Services() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,6 +1,9 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Star } from "lucide-react"
-import Image from "next/image"
+"use client";
+
+import { Card, CardContent } from "@/components/ui/card";
+import { Star } from "lucide-react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Testimonials() {
   const testimonials = [
@@ -28,51 +31,71 @@ export default function Testimonials() {
         "The documentation support was incredible. They guided me through the work permit process and made what seemed impossible, completely manageable. Highly recommend!",
       rating: 5,
     },
-  ]
+  ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gradient-to-br from-green-50 via-white to-green-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            What Our Clients Say
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Don't just take our word for it - hear from the people we've helped make Kenya their home.
+            Real stories, real impact. Hear how we've helped others turn their
+            move to Kenya into a confident and comfortable new beginning.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="h-full">
-              <CardContent className="p-6">
-                {/* Rating */}
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-
-                {/* Content */}
-                <p className="text-gray-600 mb-6 italic">"{testimonial.content}"</p>
-
-                {/* Author */}
-                <div className="flex items-center">
-                  <Image
-                    src={testimonial.image || "/placeholder.svg"}
-                    alt={testimonial.name}
-                    width={48}
-                    height={48}
-                    className="rounded-full mr-4"
-                  />
-                  <div>
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-sm text-gray-600">{testimonial.role}</div>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full rounded-2xl shadow-sm hover:shadow-md bg-white transition-shadow duration-300 border border-green-100">
+                <CardContent className="p-6">
+                  {/* Rating */}
+                  <div className="flex items-center mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                      />
+                    ))}
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+
+                  {/* Content */}
+                  <p className="text-gray-700 mb-6 italic leading-relaxed">
+                    "{testimonial.content}"
+                  </p>
+
+                  {/* Author */}
+                  <div className="flex items-center">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      width={48}
+                      height={48}
+                      className="rounded-full mr-4"
+                    />
+                    <div>
+                      <div className="font-semibold text-gray-900">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        {testimonial.role}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

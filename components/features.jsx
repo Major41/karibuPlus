@@ -1,55 +1,80 @@
-import { Shield, Users, Clock, Award } from "lucide-react"
+"use client";
 
-export default function Features() {
-  const features = [
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import Image from "next/image";
+import heroImage from "@/public/kenya1.jpg";
+
+export default function FeaturesAccordion() {
+  const points = [
     {
-      icon: Shield,
-      title: "Trusted & Secure",
-      description:
-        "Vetted service providers and secure processes ensure your safety and peace of mind throughout your journey.",
+      title:
+        "We're more than a service—we’re your trusted companion in a new land.",
+      content:
+        "Others offer lists. We offer solutions. Instead of leaving you to figure it out, we walk with you—step by step.",
     },
     {
-      icon: Users,
-      title: "Local Expertise",
-      description:
-        "Our team of local experts understands Kenyan culture, systems, and processes to guide you effectively.",
+      title: "We personalize what others generalize.",
+      content:
+        "Your needs are unique, and so is our approach. No one-size-fits-all support here.",
     },
     {
-      icon: Clock,
-      title: "24/7 Support",
-      description:
-        "Round-the-clock assistance for emergencies and urgent matters, because we know settling in doesn't follow business hours.",
+      title: "We care—deeply.",
+      content:
+        "We don’t just link you to services. We vet, guide, and ensure your peace of mind every step of the way.",
     },
     {
-      icon: Award,
-      title: "Personalized Service",
-      description:
-        "Tailored solutions that adapt to your unique needs, background, and circumstances for a truly personal experience.",
+      title: "We deliver impact, not just convenience.",
+      content:
+        "Your journey empowers local talent, formalizes work, and builds stronger communities through every service you use.",
     },
-  ]
+  ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gradient-to-br from-green-50 via-white to-blue-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose Karibu Plus?</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're more than just a service provider - we're your trusted partner in making Kenya feel like home.
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Why Choose Karibu Plus <br />{" "}
+            <span className="text-green-600">and Not Just Anyone Else?</span>
+          </h2>
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            Because we’re more than a service—we’re your trusted companion in a
+            new land.
           </p>
         </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
-            <div key={index} className="text-center group">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors">
-                <feature.icon className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-            </div>
-          ))}
+        <div className="flex md:flex-row-reverse gap-10 flex-col ">
+          <div className="mx-auto space-y-4  w-full">
+            <Accordion type="single" collapsible className="mb-3">
+              {points.map((item, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className="border border-gray-200 rounded-lg bg-white shadow-sm transition duration-300 hover:shadow-md"
+                >
+                  <AccordionTrigger className="px-4 py-3 text-left text-base md:text-lg font-semibold text-gray-800 hover:text-green-600 transition-colors">
+                    {item.title}
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 pb-4 text-gray-600 leading-relaxed">
+                    {item.content}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+          <div className=" w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg">
+            <Image
+              src={heroImage}
+              alt="Welcome to Kenya"
+              className="object-cover w-full h-[300px] md:h-[400px]"
+            />
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

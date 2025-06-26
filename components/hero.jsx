@@ -6,22 +6,23 @@ import image from "../public/download.jpeg";
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-br from-green-50 to-blue-50 py-10 ">
+    <section className="bg-gradient-to-br to-[#1c6758] from-[#fff8ec] py-10 ">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
-                🇰🇪 Welcome to Kenya - Karibu!
+                🇰🇪 KARIBU KENYA - WELCOME HOME!
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Your Digital <span className="text-green-600">Concierge</span>{" "}
-                for Life in Kenya
+              <h1 className="text-4xl md:text-5xl lg:text-[60px] font-bold text-gray-900 leading-tight">
+                Relocation can be{" "}
+                <span className="text-green-600">Overwhelming,</span> But It
+                Doesn’t Have to Be
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Personalized support for expats, returnees, and newcomers. We
-                simplify relocation and settling in through trusted local
-                expertise.
+                At Karibu Plus, we’re your digital concierge for life in Kenya —
+                helping expats, returnees, and newcomers navigate every step of
+                settling in
               </p>
             </div>
 
@@ -44,7 +45,7 @@ export default function Hero() {
               >
                 <Link href="/services">
                   <Play className="w-5 h-5 mr-2" />
-                  Explore Services
+                  Let’s Get You Settled
                 </Link>
               </Button>
             </div>
