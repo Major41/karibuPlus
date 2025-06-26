@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import image from "../public/download.jpeg";
+import image from "../public/kenya4.jpg";
 
 export default function Hero() {
   return (
