@@ -14,7 +14,7 @@ export default function Hero() {
               <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
                 🇰🇪 KARIBU KENYA - WELCOME HOME!
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-[60px] font-bold text-gray-900 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-[54px] font-bold text-gray-900 leading-tight">
                 Relocation can be{" "}
                 <span className="text-green-600">Overwhelming,</span> But It
                 Doesn’t Have to Be
@@ -43,7 +43,7 @@ export default function Hero() {
                 size="lg"
                 className="text-lg px-8"
               >
-                <Link href="/services">
+                <Link href="/services" className="bg-[#ffd66b]">
                   <Play className="w-5 h-5 mr-2" />
                   Let’s Get You Settled
                 </Link>

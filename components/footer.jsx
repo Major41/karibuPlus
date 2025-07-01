@@ -7,9 +7,38 @@ import {
   Twitter,
   Instagram,
   Linkedin,
+  
 } from "lucide-react";
 
+
+
 export default function Footer() {
+  const TikTokIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+      className="w-5 h-5"
+    >
+      <path d="M9 3v12a3 3 0 1 1-3-3" />
+      <path d="M15 3a6 6 0 0 0 6 6" />
+      <path d="M15 3v12a6 6 0 0 1-6 6" />
+    </svg>
+  );
+
+  const WhatsAppIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      className="w-5 h-5"
+    >
+      <path d="M12.04 2.003c-5.53 0-10.02 4.49-10.02 10.017 0 1.763.465 3.42 1.348 4.903L2 22l5.22-1.363c1.43.782 3.05 1.195 4.82 1.195h.002c5.53 0 10.02-4.49 10.02-10.017s-4.49-10.017-10.02-10.017zm5.9 14.213c-.248.69-1.45 1.275-2.002 1.36-.518.076-1.165.107-1.875-.116a9.94 9.94 0 0 1-1.607-.666c-2.82-1.507-4.66-4.522-4.798-4.735-.137-.213-1.145-1.526-1.145-2.91 0-1.385.729-2.065.987-2.34.26-.274.568-.343.76-.343h.576c.24 0 .36.017.52.407.197.486.626 1.68.682 1.803.055.122.092.267.018.43-.075.164-.113.27-.224.415-.111.145-.234.324-.33.434-.111.129-.226.27-.097.512.13.24.577.95 1.24 1.536.854.765 1.574 1.004 1.814 1.119.24.115.379.096.52-.058.143-.153.598-.693.758-.932.16-.24.32-.197.541-.119.222.078 1.407.663 1.648.784.24.12.398.18.457.28.059.1.059.583-.189 1.273z" />
+    </svg>
+  );
+  
   return (
     <footer className="bg-gradient-to-tr from-green-900 via-green-800 to-gray-900 text-white">
       <div className="container mx-auto px-4 py-16">
@@ -28,15 +57,40 @@ export default function Footer() {
               step of your transition to life in Kenya.
             </p>
             <div className="flex space-x-4 mt-4">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                <Link
-                  key={i}
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  <Icon className="w-5 h-5" />
-                </Link>
-              ))}
+              <Link
+                href="https://www.tiktok.com/@karibuplus"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <TikTokIcon />
+              </Link>
+
+              <Link
+                href="https://whatsapp.com/channel/0029Vb6WfWC9WtC50uQtj50J"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <WhatsAppIcon />
+              </Link>
+
+              <Link
+                href="https://www.instagram.com/karibuplus/?next=%2F"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/company/karibuplus/?viewAsMember=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+              </Link>
             </div>
           </div>
 
